@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import UIKit
+
+public func OpenTextFile(fileName: String, extenstion: String = "txt") -&gt; [String] {
+    guard let url = Bundle.main.url(forResource: fileName, withExtension: extenstion) else {
+        fatalError("Can not get input file")
+    }
+    guard let data = try? Data(contentsOf: url) else {
+        fatalError("Can read data")
+    }
+    let text = String(decoding: data, as: UTF8.self)
+    return text.components(separatedBy: .newlines)
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{75, 446}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{75, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
