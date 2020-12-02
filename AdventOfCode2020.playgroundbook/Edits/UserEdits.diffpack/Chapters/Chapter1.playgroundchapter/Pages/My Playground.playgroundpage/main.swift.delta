@@ -11,22 +11,26 @@
 let lines = OpenTextFile(fileName: "day1_1")
 let numbers = lines[0..&lt;lines.count-1].map { Int($0)! }.sorted()
 
-let cnt = numbers.count
+findSum()
 
-for i in (0..&lt;cnt).reversed() {
-    for j in 0..&lt;i {
-        let sum = numbers[i] + numbers[j]
-        if sum &gt; expectedSum {
-            break
-        }
-        if sum == expectedSum {
-            print(numbers[i], numbers[j], numbers[i]*numbers[j])
+func findSum() {
+    let cnt = numbers.count
+    for i in (0..&lt;cnt).reversed() {
+        for j in 0..&lt;i {
+            let sum = numbers[i] + numbers[j]
+            if sum &gt; expectedSum {
+                break
+            }
+            if sum == expectedSum {
+                print(numbers[i], numbers[j], numbers[i]*numbers[j])
+                return
+            }
         }
     }
 }
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 429}</string>
+			<string>{0, 529}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>

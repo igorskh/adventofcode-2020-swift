@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+let regex = try! NSRegularExpression(pattern: #"(\d+)-(\d+) (\S): (\S+)"#)
+struct PasswordInput {
+    init?(line: String) {
+        var letter: String = ""
+        var pos1: Int = 0
+        var pos2: Int = 0
+        
+        var str: String = ""
+        
+        let range = NSRange(location: 0, length: line.utf16.count)
+        guard let match = regex.firstMatch(in: line, options: [], range: range) else {
+            return nil
+        }
+        
+        if let rng = Range(match.range(at: 1), in: line) {
+            pos1 = Int(line[rng])!
+        }
+        if let rng = Range(match.range(at: 2), in: line) {
+            pos2 = Int(line[rng])!
+        }
+        if let rng = Range(match.range(at: 3), in: line) {
+            letter = String(line[rng])
+        }
+        if let rng = Range(match.range(at: 4), in: line) {
+            str = String(line[rng])
+        }
+        
+        guard (str[pos1-1] == Character(letter)) != (str[pos2-1] == Character(letter)) else {
+            return nil
+        }
+    }
+}
+
+let lines = OpenTextFile(fileName: "day2_1")
+
+let result = lines.flatMap {
+    PasswordInput(line: $0)
+}
+result.count
+
+extension StringProtocol {
+    subscript(offset: Int) -&gt; Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 1282}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
