@@ -18,9 +18,16 @@ public func OpenTextFile(fileName: String, extenstion: String = "txt") -&gt; [St
     let text = String(decoding: data, as: UTF8.self)
     return text.components(separatedBy: .newlines)
 }
+
+
+public extension StringProtocol {
+    subscript(offset: Int) -&gt; Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
+}
 </string>
 			<key>ModifiedRange</key>
-			<string>{75, 446}</string>
+			<string>{75, 582}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

@@ -49,15 +49,9 @@ let result = lines.flatMap {
     PasswordInput(line: $0)
 }
 result.count
-
-extension StringProtocol {
-    subscript(offset: Int) -&gt; Character {
-        self[index(startIndex, offsetBy: offset)]
-    }
-}
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 1282}</string>
+			<string>{0, 1154}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>

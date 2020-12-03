@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let lines = OpenTextFile(fileName: "day3_1")
+
+var grid_size = (x: lines[0].count, y: lines.count)
+
+func count_tress(step_size: (x: Int, y: Int)) -&gt; Int {
+    var pos = (x: 0, y: 0)
+    var trees_count = 0
+    while pos.y &lt; lines.count-2 {
+        pos.x += step_size.x
+        pos.y += step_size.y
+        
+        if lines[pos.y][pos.x % grid_size.x] == "#" {
+            trees_count += 1
+        }
+    }
+    return trees_count
+}
+
+var result = 1
+for step_size in [(x: 1, y: 1), (x: 3, y: 1), (x: 5, y: 1), (x: 7, y: 1), (x: 1, y: 2)] as [(x: Int, y: Int)] {
+    result *= count_tress(step_size: step_size)
+}
+print(result)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 622}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
