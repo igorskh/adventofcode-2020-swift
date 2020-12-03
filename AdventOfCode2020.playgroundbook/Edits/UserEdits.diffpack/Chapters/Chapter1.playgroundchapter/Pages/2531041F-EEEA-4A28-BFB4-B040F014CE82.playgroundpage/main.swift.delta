@@ -26,6 +26,10 @@ func count_tress(step_size: (x: Int, y: Int)) -&gt; Int {
     return trees_count
 }
 
+// MARK: - Part1
+count_tress(step_size: (x: 3, y: 1))
+
+// MARK: - Part2
 var result = 1
 for step_size in [(x: 1, y: 1), (x: 3, y: 1), (x: 5, y: 1), (x: 7, y: 1), (x: 1, y: 2)] as [(x: Int, y: Int)] {
     result *= count_tress(step_size: step_size)
@@ -33,7 +37,7 @@ for step_size in [(x: 1, y: 1), (x: 3, y: 1), (x: 5, y: 1), (x: 7, y: 1), (x: 1,
 print(result)
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 622}</string>
+			<string>{0, 694}</string>
 			<key>OriginalContent</key>
 			<string></string>
 			<key>OriginalRange</key>

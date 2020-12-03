@@ -28,7 +28,7 @@ func findSum() {
                     break
                 }
                 if sum == expectedSum {
-                    print(numbers[i], numbers[j], numbers[k], numbers[i]*numbers[j]*numbers[k])
+                    "\(numbers[i]) * \(numbers[j]) * \(numbers[k]) = \(numbers[i]*numbers[j]*numbers[k])"
                     return
                 }
             }
@@ -37,7 +37,7 @@ func findSum() {
 }
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 740}</string>
+			<string>{0, 750}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>
