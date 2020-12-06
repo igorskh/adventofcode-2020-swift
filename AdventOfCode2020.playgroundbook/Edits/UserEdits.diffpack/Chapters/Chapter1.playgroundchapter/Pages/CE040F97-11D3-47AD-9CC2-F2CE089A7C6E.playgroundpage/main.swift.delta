@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let lines = OpenTextFile(fileName: "day6_1")
+var result = 0
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 60}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{0, 0}</string>
+		</dict>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>var currentSet: [Character:Int] = [:]
+var nPersons = 0
+lines[0...lines.count-1].forEach {
+    if $0 == "" {
+        result += currentSet.keys.reduce(0, {
+            $0 + (currentSet[$1]! == nPersons ? 1 : 0)
+        })
+        
+        currentSet = [:]
+        nPersons = 0
+    } else {
+        Set($0).forEach {
+            if currentSet[$0] == nil {
+                currentSet[$0] = 0
+            }
+            currentSet[$0]! += 1
+        }
+        nPersons += 1
+    }
+}
+print(result)
+</string>
+			<key>ModifiedRange</key>
+			<string>{61, 489}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
