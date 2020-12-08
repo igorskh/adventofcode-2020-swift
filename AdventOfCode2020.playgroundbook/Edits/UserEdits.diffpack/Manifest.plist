@@ -10,6 +10,10 @@
 	<string>PlaygroundBookUserEdit</string>
 	<key>Diffs</key>
 	<dict>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/012CD5A4-470F-4B56-9B15-D32B778B2F89.playgroundpage/UserManifest.plist</key>
+		<string>Added</string>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/012CD5A4-470F-4B56-9B15-D32B778B2F89.playgroundpage/main.swift</key>
+		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/07E5C8E3-FA67-4A9B-8A69-C36F1C3D8176.playgroundpage/UserManifest.plist</key>
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/07E5C8E3-FA67-4A9B-8A69-C36F1C3D8176.playgroundpage/main.swift</key>
@@ -29,6 +33,10 @@
 		<key>Chapters/Chapter1.playgroundchapter/Pages/8D55E346-D620-430C-A6BF-A9AEAEEDD4C7.playgroundpage/UserManifest.plist</key>
 		<string>Added</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/8D55E346-D620-430C-A6BF-A9AEAEEDD4C7.playgroundpage/main.swift</key>
+		<string>Modified</string>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/97741391-9029-4C19-8E55-A8B34EE96215.playgroundpage/UserManifest.plist</key>
+		<string>Added</string>
+		<key>Chapters/Chapter1.playgroundchapter/Pages/97741391-9029-4C19-8E55-A8B34EE96215.playgroundpage/main.swift</key>
 		<string>Modified</string>
 		<key>Chapters/Chapter1.playgroundchapter/Pages/BD1B122A-4C7D-4827-B88B-34C364A6DC91.playgroundpage/UserManifest.plist</key>
 		<string>Added</string>
