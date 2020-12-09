@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>let lines = OpenTextFile(fileName: "day9_1")
+
+var preambleLength = 25
+var numbers = [Int](repeating: 0, count: preambleLength)
+
+var counter = 0
+var preambleFinished = false
+for line in lines {
+    let element = Int(line)!
+    if preambleFinished {
+        if !lookForElement(array: numbers, element: element) {
+            print(element)
+            break
+        }
+    }
+    numbers[counter] = element
+    if !preambleFinished &amp;&amp; counter == preambleLength-1 {
+        preambleFinished = true
+    }
+    counter = (counter+1)%(preambleLength)
+}
+
+func lookForElement(array: [Int], element: Int) -&gt; Bool {
+    for i in 0..&lt;preambleLength {
+        for j in i+1..&lt;preambleLength {
+            if numbers[i] + numbers[j] == element {
+                return true
+            }
+        }
+    }
+    return false
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 806}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>

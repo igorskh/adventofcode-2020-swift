@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>var lines = OpenTextFile(fileName: "day9_1")
+
+let expectedSum = 217430975
+var element = 0
+
+var cumSum = 0
+var map: [Int:Int] = [:]
+var pos = (start: 0, end: 0)
+for i in 0..&lt;lines.count-1 {
+    cumSum += Int(lines[i])!
+    if cumSum == expectedSum {
+        pos.end = i
+        break
+    }
+    if let idx = map[cumSum - expectedSum] {
+        pos.start = idx+1
+        pos.end = i
+        break
+    }
+    map[cumSum] = i
+}
+
+var min = Int(lines[pos.start])!
+var max = Int(lines[pos.start])!
+for i in pos.start...pos.end {
+    let element = Int(lines[i])!
+    if element &lt; min {
+        min = element
+    }
+    if element &gt; max {
+        max = element
+    }
+}
+print(min, max, min+max)
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 682}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
