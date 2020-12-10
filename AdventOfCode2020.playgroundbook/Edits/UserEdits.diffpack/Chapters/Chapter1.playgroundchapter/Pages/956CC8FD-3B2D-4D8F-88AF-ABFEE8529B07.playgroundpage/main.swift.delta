@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>var lines = OpenTextFile(fileName: "day10_0")
+var numbers = lines[0..&lt;lines.count].map { Int($0)! }.sorted()
+
+var currentRating = 0
+var chain: [Int] = []
+
+print(numbers)
+
+var diff: [Int] = [
+    numbers[0] 
+]
+var cumSum = 0
+for i in 1..&lt;numbers.count {
+    let currentDiff = numbers[i] - numbers[i-1]
+    diff.append(currentDiff)
+}
+print(diff)
+
+let ones = diff.countElements(element: 1)
+let threes = (diff.countElements(element: 3)+1)
+print(ones, threes, ones*threes)
+
+extension Array where Element == Int {
+    func countElements(element: Element) -&gt; Int {
+        return diff.reduce(0, { res, v in res + (v == element ? 1 : 0) })
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 640}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
