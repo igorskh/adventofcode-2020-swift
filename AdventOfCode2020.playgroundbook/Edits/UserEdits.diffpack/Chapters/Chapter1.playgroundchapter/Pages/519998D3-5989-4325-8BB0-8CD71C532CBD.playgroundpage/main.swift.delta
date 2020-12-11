@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BaseFile</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/Template.playgroundpage/main.swift</string>
+	<key>Diffs</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>var lines = OpenTextFile(fileName: "day11_1")
+
+var map: [Int:[Int]] = [:]
+var adjacents: [Int:[Int]] = [:]
+var size = 0
+lines.enumerated().forEach { line in
+    if size == 0 {
+        size = line.element.count
+    }
+    map[line.offset] = Array(repeating: 0, count: size)
+    adjacents[line.offset] = Array(repeating: 0, count: size)
+    
+    line.element.enumerated().forEach {
+        if $0.element == "L" {
+            map[line.offset]![$0.offset] = 1
+            adjacents[line.offset]![$0.offset] = 0
+        }
+    }
+}
+
+//  printMap(map)
+//  printAdjacents(adjacents)
+//  print("")
+
+while true {
+    var newAdjacents = adjacents
+    var nChanged = 0
+    for i in 0..&lt;map.keys.count {
+        for j in 0..&lt;map[i]!.count {
+            if map[i]![j] &lt; 1 {
+                continue
+            }
+            var iter = 0 
+            if map[i]![j] == 1 &amp;&amp; adjacents[i]![j] == 0 {
+                iter = 1
+                map[i]![j] = 2
+            } else if map[i]![j] == 2 &amp;&amp; adjacents[i]![j] &gt;= 4 {
+                iter = -1
+                map[i]![j] = 1
+            } 
+            
+            if iter != 0 {
+                nChanged += 1
+                newAdjacents[i-1]?[j] += adjacentsIter(i-1, j, iter)
+                newAdjacents[i+1]?[j] += adjacentsIter(i+1, j, iter)
+                if j &gt; 0 {
+                    newAdjacents[i]?[j-1] += adjacentsIter(i, j-1, iter)
+                    newAdjacents[i-1]?[j-1] += adjacentsIter(i-1, j-1, iter)
+                    newAdjacents[i+1]?[j-1] += adjacentsIter(i+1, j-1, iter)
+                }
+                if j &lt; map[i]!.count-1 {
+                    newAdjacents[i]?[j+1] += adjacentsIter(i, j+1, iter)
+                    newAdjacents[i-1]?[j+1] += adjacentsIter(i-1, j+1, iter)
+                    newAdjacents[i+1]?[j+1] += adjacentsIter(i+1, j+1, iter)
+                }
+            }
+        }
+    }
+    adjacents = newAdjacents
+    if nChanged == 0 {
+        break
+    }
+//      printMap(map)
+//      print(nChanged)
+//      printAdjacents(adjacents)
+//      print("")
+}
+
+
+var countOccupied = 0
+for i in 0..&lt;map.keys.count {
+    for element in map[i]! {
+        if element == 2 {
+            countOccupied += 1
+        }
+    }
+}
+print(countOccupied)
+
+func adjacentsIter(_ i: Int, _ j: Int, _ iter: Int) -&gt; Int {
+    guard let row = map[i] else {
+        return 0
+    }
+    if row[j] &lt; 1 {
+        return 0 
+    }
+    return iter
+}
+
+func printAdjacents(_ map: [Int:[Int]]) {
+    for i in 0..&lt;map.keys.count {
+        for element in map[i]! {
+            print("\(element)", terminator:"")
+            
+        }
+        print("")
+    }
+}
+
+func printMap(_ map: [Int:[Int]]) {
+    for i in 0..&lt;map.keys.count {
+        for element in map[i]! {
+            switch element {
+            case 1:
+                print("L", terminator:"")
+            case 2:
+                print("#", terminator:"")
+            default:
+                print(".", terminator:"")
+            }
+            
+        }
+        print("")
+    }
+}
+</string>
+			<key>ModifiedRange</key>
+			<string>{0, 2991}</string>
+			<key>OriginalContent</key>
+			<string>
+</string>
+			<key>OriginalRange</key>
+			<string>{0, 1}</string>
+		</dict>
+	</array>
+	<key>FormatVersion</key>
+	<integer>2</integer>
+</dict>
+</plist>
