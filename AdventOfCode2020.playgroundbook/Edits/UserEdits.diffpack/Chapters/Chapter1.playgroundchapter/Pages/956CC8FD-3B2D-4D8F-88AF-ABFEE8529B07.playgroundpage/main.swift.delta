@@ -8,8 +8,8 @@
 	<array>
 		<dict>
 			<key>ModifiedContent</key>
-			<string>var lines = OpenTextFile(fileName: "day10_0")
-var numbers = lines[0..&lt;lines.count].map { Int($0)! }.sorted()
+			<string>var lines = OpenTextFile(fileName: "day10_2")
+var numbers = lines[0..&lt;lines.count-1].map { Int($0)! }.sorted()
 
 var currentRating = 0
 var chain: [Int] = []
@@ -20,10 +20,40 @@ var diff: [Int] = [
     numbers[0] 
 ]
 var cumSum = 0
+var onesStrike = numbers[0] == 1 ? 1 : 0
+var onesDict: [Int:Int] = [:]
 for i in 1..&lt;numbers.count {
     let currentDiff = numbers[i] - numbers[i-1]
+    if currentDiff == 1 {
+        onesStrike += 1
+    } else {
+        if onesStrike &gt; 1 {
+            if onesDict[onesStrike] == nil {
+                onesDict[onesStrike] = 1
+            } else {
+                onesDict[onesStrike]! += 1
+            }
+        }
+        onesStrike = 0
+    }
     diff.append(currentDiff)
 }
+if onesStrike &gt; 0 {
+    onesDict[onesStrike]! += 1
+}
+
+print(onesDict)
+var combinations = 1
+var possibleCombinations: [Int:Int] = [
+    2:2,
+    3:4,
+    4:7
+]
+for k in onesDict.keys {
+    combinations *= possibleCombinations[k]!.power(exp: onesDict[k]!)
+}
+print(combinations)
+
 print(diff)
 
 let ones = diff.countElements(element: 1)
@@ -35,9 +65,15 @@ extension Array where Element == Int {
         return diff.reduce(0, { res, v in res + (v == element ? 1 : 0) })
     }
 }
+
+extension Int {
+    func power(exp: Int) -&gt; Int {
+        return Array(repeating: self, count: exp).reduce(1, { res, v in res*v })
+    }
+}
 </string>
 			<key>ModifiedRange</key>
-			<string>{0, 640}</string>
+			<string>{0, 1424}</string>
 			<key>OriginalContent</key>
 			<string>
 </string>
